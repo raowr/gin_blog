@@ -94,7 +94,7 @@
                         <p class="mr-3 text-muted"><i class="fa fa-folder"></i> {{.info.Browses}}</p>
                         <p class="mr-3 text-muted"><i class="fa fa-comments"></i> <span class="totalComment">{{ .info.Comments}}</span> Comments</p>
                     </div>
-                    {{ .info.Content }}
+                    {{ .info.Content | textToHtml}}
                 </div>
                 <div class="col-12 py-4">
 <!--                    <a href="" class="btn btn-sm btn-outline-primary mb-1">Lorem</a>-->
@@ -125,7 +125,7 @@
                              style="width:60px;">
                         <div class="media-body">
                             <h4>{{$v.Name}} <small><i>{{$v.CreatedAt | formatDate}}</i></small></h4>
-                            <p>{{$v.Message}}
+                            <p>{{$v.Message  | textToHtml }}
                             </p>
                         </div>
                     </div>

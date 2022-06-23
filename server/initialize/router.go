@@ -14,8 +14,6 @@ import (
 	"server/router"
 )
 
-
-
 // 初始化总路由
 
 func Routers() *gin.Engine {
@@ -24,15 +22,18 @@ func Routers() *gin.Engine {
 		"formatDate": func(date time.Time) template.HTML {
 			return template.HTML(date.Format("2006-01-02"))
 		},
-		"formatText":func(text string) template.HTML {
-			var i,n int
-			for i= range text {
-				if 250 == n{
+		"formatText": func(text string) template.HTML {
+			var i, n int
+			for i = range text {
+				if 250 == n {
 					break
 				}
 				n++
 			}
 			return template.HTML(text[:i])
+		},
+		"textToHtml": func(text string) template.HTML {
+			return template.HTML(text)
 		},
 	})
 	systemRouter := router.RouterGroupApp.System
@@ -98,9 +99,9 @@ func Routers() *gin.Engine {
 		systemRouter.InitSysDictionaryDetailRouter(PrivateGroup) // 字典详情管理
 		systemRouter.InitAuthorityBtnRouterRouter(PrivateGroup)  // 字典详情管理
 
-		systemRouter.InitBannerRouter(PrivateGroup)				//banner管理
-		systemRouter.InitCommentRouter(PrivateGroup)				//评论管理
-		systemRouter.InitArticleRouter(PrivateGroup)				//文章管理
+		systemRouter.InitBannerRouter(PrivateGroup)  //banner管理
+		systemRouter.InitCommentRouter(PrivateGroup) //评论管理
+		systemRouter.InitArticleRouter(PrivateGroup) //文章管理
 
 		exampleRouter.InitExcelRouter(PrivateGroup)                 // 表格导入导出
 		exampleRouter.InitCustomerRouter(PrivateGroup)              // 客户路由

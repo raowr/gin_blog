@@ -211,7 +211,7 @@ const deleteSysArticleFunc = async(row) => {
 }
 
 const formatText =(text) =>{
-  return text.slice(0,150)
+  return text.slice(0,250)
 }
 
 </script>
