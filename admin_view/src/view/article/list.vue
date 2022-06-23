@@ -55,7 +55,11 @@
           prop="title"
           width="160"
       />
-      <el-table-column align="left" label="简述" prop="content" width="280" />
+      <el-table-column align="left" label="简述" prop="content" width="280" >
+        <template #default="scope">{{
+            formatText(scope.row.content)
+          }}</template>
+      </el-table-column>
       <el-table-column align="center" label="浏览" prop="browses" width="80" />
       <el-table-column align="center" label="评论" prop="comments" width="80" />
       <el-table-column align="left" label="日期" width="180">
@@ -206,6 +210,9 @@ const deleteSysArticleFunc = async(row) => {
   }
 }
 
+const formatText =(text) =>{
+  return text.slice(0,150)
+}
 
 </script>
 

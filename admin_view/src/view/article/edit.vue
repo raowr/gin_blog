@@ -12,7 +12,7 @@
         </div>
       </el-form-item>
       <el-form-item label="内容" prop="content">
-        <editor :id="tinymceId" :init="init" v-model="articleData.content" placeholder="请输入内容" :height="300" :style="{width: '40%'}"></editor>
+        <editor :id="tinymceId" :init="init" v-model="articleData.content" placeholder="请输入内容" :height="300" :style="{width: '80%'}"></editor>
       </el-form-item>
       <el-form-item size="large">
         <el-button type="primary" @click="submitForm">提交</el-button>

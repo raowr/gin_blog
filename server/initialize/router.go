@@ -24,6 +24,16 @@ func Routers() *gin.Engine {
 		"formatDate": func(date time.Time) template.HTML {
 			return template.HTML(date.Format("2006-01-02"))
 		},
+		"formatText":func(text string) template.HTML {
+			var i,n int
+			for i= range text {
+				if 250 == n{
+					break
+				}
+				n++
+			}
+			return template.HTML(text[:i])
+		},
 	})
 	systemRouter := router.RouterGroupApp.System
 	exampleRouter := router.RouterGroupApp.Example

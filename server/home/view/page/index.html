@@ -91,7 +91,7 @@
             <small class="mr-2 text-muted"><i class="fa fa-comments"></i> {{$v.Comments}} Comments</small>
           </div>
           <p>
-            {{$v.Content}}
+            {{$v.Content | formatText}}
           </p>
           <a class="btn btn-link p-0" href="/detail/{{$v.ID}}">Read More <i class="fa fa-angle-right"></i></a>
         </div>
