@@ -3,10 +3,11 @@ package initialize
 import (
 	"context"
 	adapter "github.com/casbin/gorm-adapter/v3"
+	"gorm.io/gorm"
 	"server/model/example"
+	"server/model/home"
 	sysModel "server/model/system"
 	"server/service/system"
-	"gorm.io/gorm"
 )
 
 const initOrderEnsureTables = system.InitOrderExternal - 1
@@ -55,6 +56,11 @@ func (e *ensureTables) MigrateTable(ctx context.Context) (context.Context, error
 		example.ExaCustomer{},
 		example.ExaFileChunk{},
 		example.ExaFileUploadAndDownload{},
+
+		//前台模块
+		home.Banner{},
+		home.Comment{},
+		home.Article{},
 	}
 	for _, t := range tables {
 		_ = db.AutoMigrate(&t)
@@ -90,6 +96,11 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 		example.ExaCustomer{},
 		example.ExaFileChunk{},
 		example.ExaFileUploadAndDownload{},
+
+		//前台模块
+		home.Banner{},
+		home.Comment{},
+		home.Article{},
 	}
 	yes := true
 	for _, t := range tables {
